@@ -1,0 +1,162 @@
+.card {
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-4);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  transition: transform var(--animation-duration-fast) ease,
+              box-shadow var(--animation-duration-fast) ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+}
+
+.titleSection {
+  display: flex;
+  gap: var(--spacing-3);
+  flex: 1;
+  min-width: 0;
+}
+
+.airlineLogo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: var(--radius);
+  background-color: var(--background);
+  padding: var(--spacing-1);
+  flex-shrink: 0;
+}
+
+.hotelImage {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0 0 var(--spacing-1) 0;
+  line-height: 1.2;
+}
+
+.flightTimes {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.flightIcon {
+  color: var(--primary);
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.starIcon {
+  color: var(--warning);
+  fill: var(--warning);
+}
+
+.packageDetails {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.aiPlanBadge {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  font-size: 0.75rem;
+}
+
+.price {
+  font-family: var(--font-family-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--foreground);
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.priceUnit {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--muted-foreground);
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.packageLabel {
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-1);
+}
+
+.amenityBadge {
+  font-size: 0.75rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: var(--spacing-2);
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .price {
+    text-align: left;
+  }
+
+  .titleSection {
+    align-items: center;
+  }
+}

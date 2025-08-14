@@ -1,0 +1,137 @@
+.widgetContainer {
+  background-color: var(--card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: var(--card-padding-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  color: var(--card-foreground);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--spacing-2);
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.titleIcon {
+  color: var(--primary);
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.syncingIcon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.viewAllLink {
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding-right: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 var(--spacing-3) 0;
+  padding: 0 var(--spacing-2);
+  color: var(--foreground);
+}
+
+.separator {
+  height: 1px;
+  background-color: var(--border-subtle);
+  margin: 0 var(--spacing-2);
+}
+
+.upcomingToggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.upcomingToggle .sectionTitle {
+  margin-bottom: 0;
+}
+
+.toggleIcon {
+  color: var(--muted-foreground);
+  transition: transform var(--animation-duration-fast) var(--animation-ease);
+  margin-right: var(--spacing-2);
+}
+
+.toggleIcon.toggled {
+  transform: rotate(90deg);
+}
+
+.upcomingContent {
+  margin-top: var(--spacing-3);
+}
+
+.error {
+  color: var(--error);
+  background-color: color-mix(in srgb, var(--error) 10%, transparent);
+  padding: var(--spacing-3);
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  margin: 0 var(--spacing-2);
+}
+
+.connectionPrompt {
+  background-color: var(--info);
+  color: var(--info-foreground);
+  padding: var(--spacing-4);
+  border-radius: var(--radius);
+  margin: 0 var(--spacing-2) var(--spacing-4) var(--spacing-2);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  align-items: center;
+}
+
+.connectionPrompt p {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}

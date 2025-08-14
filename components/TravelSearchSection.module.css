@@ -1,0 +1,120 @@
+.container {
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.searchTabs {
+  display: flex;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-6);
+  border-bottom: 1px solid var(--border);
+}
+
+.searchTab {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-4);
+  background: none;
+  border: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+  cursor: pointer;
+  font-family: var(--font-family-base);
+  font-weight: 500;
+  color: var(--muted-foreground);
+  transition: all var(--animation-duration-fast) ease;
+  border-bottom: 2px solid transparent;
+}
+
+.searchTab:hover {
+  color: var(--foreground);
+  background-color: var(--muted);
+}
+
+.searchTab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+  background-color: var(--background);
+}
+
+.searchContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-4);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.formGroup label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.dateButton {
+  justify-content: flex-start;
+  gap: var(--spacing-2);
+}
+
+.searchButton {
+  align-self: flex-start;
+  margin-top: var(--spacing-2);
+}
+
+.resultsSection {
+  margin-top: var(--spacing-8);
+  padding-top: var(--spacing-6);
+  border-top: 1px solid var(--border);
+}
+
+.resultsTitle {
+  font-family: var(--font-family-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0 0 var(--spacing-4) 0;
+}
+
+.resultsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-4);
+}
+
+@media (max-width: 768px) {
+  .searchTabs {
+    flex-direction: column;
+  }
+
+  .searchTab {
+    border-radius: var(--radius);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .searchTab.active {
+    border-bottom-color: var(--border);
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .resultsGrid {
+    grid-template-columns: 1fr;
+  }
+}

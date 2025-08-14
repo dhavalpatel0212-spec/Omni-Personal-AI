@@ -1,0 +1,121 @@
+.card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  padding: var(--card-padding-sm);
+  border-radius: var(--radius-card);
+  color: var(--card-foreground);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--animation-duration-normal) ease-in-out;
+  width: 100%;
+  border: 1px solid var(--card-border);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.clickable {
+  cursor: pointer;
+  transition: all var(--animation-duration-normal) ease-in-out;
+}
+
+.clickable:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.clickable:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-card-active);
+}
+
+.clickable:focus {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-card-inner);
+  flex-shrink: 0;
+}
+
+.iconWrapper svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  min-width: 0; /* Prevents text overflow issues */
+}
+
+.title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: var(--font-family-heading);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Variants */
+.primary {
+  background-color: var(--card);
+}
+.primary .iconWrapper {
+  background-color: color-mix(in srgb, var(--primary) 15%, transparent);
+  color: var(--primary);
+}
+.primary .value {
+  color: var(--primary);
+}
+
+.success {
+  background-color: var(--card);
+}
+.success .iconWrapper {
+  background-color: color-mix(in srgb, var(--success) 15%, transparent);
+  color: var(--success);
+}
+.success .value {
+  color: var(--success);
+}
+
+.warning {
+  background-color: var(--card);
+}
+.warning .iconWrapper {
+  background-color: color-mix(in srgb, var(--warning) 20%, transparent);
+  color: var(--warning-foreground);
+}
+.warning .value {
+  color: var(--warning-foreground);
+}
+
+.purple {
+  background-color: var(--card);
+}
+.purple .iconWrapper {
+  background-color: color-mix(in srgb, var(--chart-color-5) 15%, transparent);
+  color: var(--chart-color-5);
+}
+.purple .value {
+  color: var(--chart-color-5);
+}

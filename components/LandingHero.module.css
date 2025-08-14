@@ -1,0 +1,228 @@
+.hero {
+  padding: var(--spacing-16) var(--spacing-4) var(--spacing-20);
+  text-align: center;
+  background-color: var(--surface);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 100%;
+  background-image: 
+    radial-gradient(
+      circle at 30% 20%,
+      color-mix(in srgb, var(--primary) 8%, transparent),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      color-mix(in srgb, var(--secondary) 6%, transparent),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at center,
+      color-mix(in srgb, var(--accent) 3%, transparent),
+      transparent 60%
+    );
+  z-index: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-16);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-6);
+  max-width: 800px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-4);
+  background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+  color: var(--primary);
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.badgeIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.headline {
+  font-family: var(--font-family-heading);
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--foreground);
+  max-width: 18ch;
+  background: linear-gradient(135deg, var(--foreground) 0%, color-mix(in srgb, var(--foreground) 80%, var(--primary) 20%) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1.1875rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  max-width: 60ch;
+  font-weight: 400;
+}
+
+.ctaButtons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  width: 100%;
+  max-width: 400px;
+  margin-top: var(--spacing-4);
+}
+
+.primaryButton {
+  position: relative;
+  background: linear-gradient(135deg, var(--primary) 0%, color-mix(in srgb, var(--primary) 90%, var(--secondary) 10%) 100%);
+  border: none;
+  box-shadow: var(--shadow-lg);
+  font-weight: 600;
+}
+
+.primaryButton:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-xl);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 95%, black 5%) 0%, color-mix(in srgb, var(--primary) 85%, var(--secondary) 15%) 100%);
+}
+
+.buttonIcon {
+  width: 1rem;
+  height: 1rem;
+  transition: transform var(--animation-duration-fast) ease;
+}
+
+.primaryButton:hover .buttonIcon {
+  transform: translateX(2px);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--spacing-4);
+  width: 100%;
+  max-width: 800px;
+}
+
+.testimonialsSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+.testimonialsTitle {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-6);
+  width: 100%;
+  max-width: 1000px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: var(--spacing-12) var(--spacing-4) var(--spacing-16);
+  }
+
+  .container {
+    gap: var(--spacing-12);
+  }
+
+  .headline {
+    font-size: 2.25rem;
+    max-width: none;
+  }
+
+  .subtitle {
+    font-size: 1.0625rem;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    gap: var(--spacing-3);
+    max-width: 300px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-3);
+  }
+
+  .testimonials {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-4);
+  }
+
+  .testimonialsTitle {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .hero {
+    padding: var(--spacing-20) var(--spacing-8) var(--spacing-20);
+  }
+
+  .headline {
+    font-size: 3.75rem;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+  }
+
+  .ctaButtons {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--spacing-4);
+    max-width: none;
+  }
+
+  .stats {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonials {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

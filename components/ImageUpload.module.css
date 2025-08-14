@@ -1,0 +1,43 @@
+.hiddenInput {
+  display: none;
+}
+
+.uploadButton {
+  color: var(--muted-foreground);
+}
+
+.uploadButton:hover {
+  color: var(--primary);
+}
+
+.dropZone {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: var(--z-content);
+}
+
+.dropZone.dragging {
+  pointer-events: all;
+  background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+  border: 2px dashed var(--primary);
+  border-radius: var(--radius-lg);
+}
+
+.dropIndicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--primary);
+  font-weight: 500;
+  gap: var(--spacing-2);
+}
+
+.dropIndicator span {
+  font-size: 0.875rem;
+}

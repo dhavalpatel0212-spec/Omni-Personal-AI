@@ -1,0 +1,83 @@
+.ctaFlowSection {
+  background-color: var(--surface);
+}
+
+.sectionContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-16) var(--spacing-4);
+}
+
+.sectionTitle {
+  font-family: var(--font-family-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--foreground);
+  margin: 0 0 var(--spacing-12);
+}
+
+.ctaFlow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-8);
+}
+
+.ctaStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--spacing-6);
+}
+
+.ctaStepNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: var(--radius-full);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-4);
+}
+
+.ctaStepContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.ctaStepTitle {
+  font-family: var(--font-family-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.ctaStepDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  margin: 0;
+  max-width: 280px;
+}
+
+@media (max-width: 768px) {
+  .sectionContent {
+    padding: var(--spacing-8) var(--spacing-4);
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .ctaFlow {
+    grid-template-columns: 1fr;
+  }
+}

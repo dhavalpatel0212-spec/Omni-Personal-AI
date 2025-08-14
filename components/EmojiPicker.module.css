@@ -1,0 +1,134 @@
+.popoverContent {
+  width: 320px;
+  padding: var(--spacing-2);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.searchContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-2);
+}
+
+.searchIcon {
+  position: absolute;
+  left: calc(var(--spacing-2) + var(--spacing-3));
+  color: var(--muted-foreground);
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding-left: calc(var(--spacing-3) * 2 + 18px);
+  background-color: var(--background);
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  height: 300px; /* Fixed height for the content area */
+}
+
+.tabsList {
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  padding: 0 var(--spacing-2);
+}
+
+.tabTrigger {
+  padding: var(--spacing-2);
+  height: auto;
+}
+
+.tabTrigger[data-state="active"] {
+  color: var(--primary);
+}
+
+.tabTrigger:hover {
+  background-color: var(--muted);
+}
+
+.scrollArea {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: var(--spacing-2) var(--spacing-2) var(--spacing-4);
+}
+
+/* Custom scrollbar for webkit browsers */
+.scrollArea::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollArea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollArea::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: var(--radius-full);
+}
+
+.scrollArea::-webkit-scrollbar-thumb:hover {
+  background-color: var(--muted-foreground);
+}
+
+.categoryTitle {
+  font-family: var(--font-family-heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  padding: var(--spacing-2) var(--spacing-2);
+  margin: 0 0 var(--spacing-2) 0;
+}
+
+.emojiGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+  gap: var(--spacing-1);
+}
+
+.emojiButton {
+  font-size: 1.5rem;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--animation-duration-fast) ease;
+  width: 36px;
+  height: 36px;
+}
+
+.emojiButton:hover {
+  background-color: var(--muted);
+}
+
+.emojiButton:focus-visible {
+  box-shadow: var(--shadow-focus);
+}
+
+.noResults {
+  text-align: center;
+  color: var(--muted-foreground);
+  padding: var(--spacing-8) var(--spacing-4);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+  .popoverContent {
+    width: 90vw;
+    max-width: 300px;
+  }
+
+  .emojiGrid {
+    grid-template-columns: repeat(auto-fill, minmax(32px, 1fr));
+  }
+
+  .emojiButton {
+    width: 32px;
+    height: 32px;
+    font-size: 1.25rem;
+  }
+}

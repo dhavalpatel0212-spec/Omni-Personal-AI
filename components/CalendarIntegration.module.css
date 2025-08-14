@@ -1,0 +1,145 @@
+.container {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--surface-foreground);
+  margin: 0;
+}
+
+.description {
+  color: var(--muted-foreground);
+  margin: var(--spacing-1) 0 var(--spacing-6) 0;
+  font-size: 0.9375rem;
+}
+
+.integrationList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.integrationItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: box-shadow var(--animation-duration-fast) ease;
+}
+
+.integrationItem:hover {
+  box-shadow: var(--shadow);
+}
+
+.providerInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.providerIcon {
+  color: var(--primary);
+}
+
+.providerName {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.providerStatusConnected,
+.providerStatusDisconnected {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  font-size: 0.875rem;
+  margin: var(--spacing-1) 0 0 0;
+}
+
+.providerStatusConnected {
+  color: var(--success);
+}
+
+.providerStatusDisconnected {
+  color: var(--muted-foreground);
+}
+
+.actions {
+  flex-shrink: 0;
+}
+
+.syncPreferences {
+  margin-top: var(--spacing-8);
+  padding-top: var(--spacing-6);
+  border-top: 1px solid var(--border);
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 var(--spacing-4) 0;
+}
+
+.preferenceItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-3) 0;
+}
+
+.preferenceItem > div:first-child {
+  flex: 1;
+  padding-right: var(--spacing-4);
+}
+
+.preferenceItem label {
+  font-weight: 500;
+  font-size: 0.9375rem;
+  color: var(--surface-foreground);
+  display: block;
+}
+
+.preferenceItem p {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin: var(--spacing-1) 0 0 0;
+}
+
+.preferenceItem span {
+  font-size: 0.9375rem;
+  color: var(--muted-foreground);
+}
+
+.googleCalendarAuth {
+  margin: 0;
+}
+
+.error {
+  color: var(--error);
+  background-color: color-mix(in srgb, var(--error) 10%, transparent);
+  padding: var(--spacing-4);
+  border-radius: var(--radius);
+}
+
+@media (max-width: 768px) {
+  .integrationItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-4);
+  }
+  .actions {
+    width: 100%;
+    display: flex;
+  }
+  .actions > button {
+    flex: 1;
+  }
+}

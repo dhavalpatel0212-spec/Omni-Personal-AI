@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.avatarButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: var(--radius-full);
+}
+
+.avatarButton:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.dropdownContent {
+  width: 240px;
+}
+
+.userLabel {
+  padding: var(--spacing-3) var(--spacing-4);
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--popup-foreground);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.userEmail {
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.menuIcon {
+  margin-right: var(--spacing-2);
+  width: 1rem;
+  height: 1rem;
+  color: var(--muted-foreground);
+}
+
+/* Ensure Link components in dropdown menu items look correct */
+.dropdownContent a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+.themeItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.themeItem:focus-visible {
+  background-color: transparent !important;
+}
+
+.logoutItem {
+  color: var(--error);
+}
+
+.logoutItem:hover,
+.logoutItem:focus-visible {
+  background-color: color-mix(in srgb, var(--error) 10%, transparent) !important;
+  color: var(--error) !important;
+}
+
+.logoutItem .menuIcon {
+  color: var(--error);
+}

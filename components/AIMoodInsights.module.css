@@ -1,0 +1,180 @@
+.card {
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-5);
+  color: var(--surface-foreground);
+  border: 1px solid var(--border);
+  transition: box-shadow var(--animation-duration-normal) ease-in-out;
+  height: 100%; /* Ensure it matches height of adjacent components */
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding-bottom: var(--spacing-4);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.titleIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--primary);
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--surface-foreground);
+}
+
+.insightsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.insightSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.insightHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.insightIcon {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.positiveIcon {
+  color: var(--success);
+}
+
+.suggestionIcon {
+  color: var(--info);
+}
+
+.insightTitle {
+  font-family: var(--font-family-heading);
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  color: var(--surface-foreground);
+}
+
+.insightList {
+  list-style-type: none;
+  padding-left: calc(var(--spacing-2) + 1.125rem); /* Align with title */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.insightList li {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+  position: relative;
+}
+
+.insightList li::before {
+  content: '•';
+  position: absolute;
+  left: -1.2em;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* States */
+.stateContainer {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--spacing-4);
+  min-height: 300px;
+}
+
+.stateIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+}
+
+.errorIconWrapper {
+  background-color: color-mix(in srgb, var(--error) 10%, transparent);
+}
+
+.stateIcon {
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--primary);
+}
+
+.errorIconWrapper .stateIcon {
+  color: var(--error);
+}
+
+.stateTitle {
+  font-family: var(--font-family-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--surface-foreground);
+}
+
+.errorTitle {
+  color: var(--error);
+}
+
+.stateText {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin: 0;
+  max-width: 320px;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .card {
+    padding: var(--spacing-4);
+    gap: var(--spacing-4);
+  }
+
+  .title {
+    font-size: 1.125rem;
+  }
+
+  .stateContainer {
+    min-height: 240px;
+    padding: var(--spacing-6);
+  }
+
+  .stateTitle {
+    font-size: 1rem;
+  }
+
+  .stateText {
+    font-size: 0.8125rem;
+  }
+}

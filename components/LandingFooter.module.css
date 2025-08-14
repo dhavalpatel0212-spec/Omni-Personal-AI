@@ -1,0 +1,122 @@
+.footer {
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: var(--spacing-12) var(--spacing-4) 0;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  padding-bottom: var(--spacing-8);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  text-decoration: none;
+  color: var(--foreground);
+}
+
+.logoIcon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.logoText {
+  font-family: var(--font-family-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.tagline {
+  color: var(--muted-foreground);
+  font-size: 0.9375rem;
+}
+
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-8);
+}
+
+.linkColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.columnTitle {
+  font-family: var(--font-family-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.footerLink {
+  color: var(--muted-foreground);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  transition: color var(--animation-duration-fast) ease;
+}
+
+.footerLink:hover {
+  color: var(--primary);
+}
+
+.bottomBar {
+  border-top: 1px solid var(--border);
+  padding: var(--spacing-6) 0;
+  text-align: center;
+}
+
+.copyright {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+@media (min-width: 768px) {
+  .mainContent {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .brand {
+    flex-shrink: 0;
+    max-width: 250px;
+  }
+
+  .linksGrid {
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: end;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .bottomBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    padding: var(--spacing-16) var(--spacing-8) 0;
+  }
+}

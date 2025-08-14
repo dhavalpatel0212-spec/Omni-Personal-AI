@@ -1,0 +1,207 @@
+.container {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  min-height: 600px; /* Ensure it has some height */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.navButtons {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.navButtons button {
+  border-radius: 0;
+}
+.navButtons button:first-child {
+  border-right: 1px solid var(--border);
+  border-top-left-radius: var(--radius-sm);
+  border-bottom-left-radius: var(--radius-sm);
+}
+.navButtons button:last-child {
+  border-top-right-radius: var(--radius-sm);
+  border-bottom-right-radius: var(--radius-sm);
+}
+
+.dateRange {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--surface-foreground);
+  margin: 0;
+}
+
+.calendarGrid {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.gridHeader, .gridBody {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  min-width: 0;
+}
+
+.gridHeader {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--spacing-2);
+}
+
+.dayHeader {
+  text-align: center;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.dayName {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.dayNumber {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  transition: background-color var(--animation-duration-fast) ease, color var(--animation-duration-fast) ease;
+}
+
+.dayNumber.today {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.gridBody {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.dayColumn {
+  border-right: 1px solid var(--border-subtle);
+  padding: var(--spacing-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  min-height: 400px;
+  position: relative;
+}
+
+.dayColumn:last-child {
+  border-right: none;
+}
+
+.todayColumn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: color-mix(in srgb, var(--primary) 5%, transparent);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.eventCard {
+  background-color: var(--card);
+  border-left: 3px solid var(--secondary);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-2) var(--spacing-3);
+  cursor: pointer;
+  transition: background-color var(--animation-duration-fast) ease, box-shadow var(--animation-duration-fast) ease;
+  box-shadow: var(--shadow-xs);
+  position: relative;
+  z-index: 1;
+}
+
+.eventCard:hover {
+  background-color: var(--card-hover);
+  box-shadow: var(--shadow-sm);
+}
+
+.eventCard:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+}
+
+.eventCard p {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.eventTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--card-foreground);
+}
+
+.eventTime {
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+}
+
+.error {
+  grid-column: 1 / -1;
+  color: var(--error);
+  background-color: color-mix(in srgb, var(--error) 10%, transparent);
+  padding: var(--spacing-4);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .dayName {
+    font-size: 0.7rem;
+  }
+  .dayNumber {
+    font-size: 1rem;
+    width: 28px;
+    height: 28px;
+  }
+  .container {
+    padding: var(--spacing-4);
+  }
+  .dayColumn {
+    padding: var(--spacing-1);
+  }
+  .eventCard {
+    padding: var(--spacing-1) var(--spacing-2);
+  }
+  .eventTitle {
+    font-size: 0.8rem;
+  }
+  .eventTime {
+    font-size: 0.75rem;
+  }
+}

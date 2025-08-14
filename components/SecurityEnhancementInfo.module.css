@@ -1,0 +1,83 @@
+.container {
+  background-color: var(--card);
+  border-radius: var(--radius-card);
+  padding: var(--card-padding);
+  box-shadow: var(--shadow-card);
+  color: var(--card-foreground);
+  max-width: 600px;
+  border: 1px solid var(--border-subtle);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-4);
+}
+
+.headerIcon {
+  color: var(--primary);
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.intro {
+  font-size: 1rem;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.separator {
+  margin: var(--spacing-6) 0;
+}
+
+.section {
+  margin-bottom: var(--spacing-5);
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
+}
+
+.sectionTitle {
+  font-family: var(--font-family-heading);
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.sectionIconWarning {
+  color: var(--warning);
+}
+
+.sectionIconInfo {
+  color: var(--info);
+}
+
+.sectionContent {
+  font-size: 0.95rem;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+  margin: 0;
+  padding-left: calc(20px + var(--spacing-2)); /* Align with title */
+}
+
+.sectionContent strong {
+  color: var(--foreground);
+  font-weight: 600;
+}

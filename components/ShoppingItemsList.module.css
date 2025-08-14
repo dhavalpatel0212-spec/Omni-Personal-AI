@@ -1,0 +1,127 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.emptyState {
+  text-align: center;
+  padding: var(--spacing-8);
+  color: var(--muted-foreground);
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--border);
+}
+
+.categoryGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.categoryTitle {
+  font-family: var(--font-family-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--secondary);
+  text-transform: capitalize;
+  padding-bottom: var(--spacing-2);
+  border-bottom: 1px solid var(--border);
+  margin: 0;
+}
+
+.itemList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  padding: var(--spacing-3);
+  background-color: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  transition: background-color var(--animation-duration-fast) ease;
+}
+
+.itemMain {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.item:hover {
+  background-color: var(--muted);
+}
+
+.itemName {
+  flex-grow: 1;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  transition: color var(--animation-duration-fast) ease;
+}
+
+.quantity {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  background-color: var(--muted);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-sm);
+}
+
+.itemMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.categoryEditor {
+  flex-shrink: 0;
+}
+
+.completed .itemName {
+  text-decoration: line-through;
+  color: var(--muted-foreground);
+}
+
+.completed {
+  opacity: 0.7;
+}
+
+.priceSection {
+  margin-left: calc(1.25rem + var(--spacing-3)); /* Align with item content, accounting for checkbox width */
+  margin-top: var(--spacing-2);
+}
+
+.priceCard {
+  max-width: 100%;
+  box-shadow: var(--shadow-xs);
+}
+
+@media (max-width: 768px) {
+  .priceSection {
+    margin-left: 0;
+  }
+  
+  .priceCard {
+    font-size: 0.875rem;
+  }
+
+  .itemMeta {
+    flex-wrap: wrap;
+    gap: var(--spacing-1);
+  }
+  
+  .categoryEditor {
+    order: -1; /* Show category editor first on mobile for better accessibility */
+  }
+}

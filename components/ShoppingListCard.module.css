@@ -1,0 +1,111 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card);
+  border-radius: var(--radius-card);
+  padding: var(--card-padding-sm);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--card-border);
+  transition: all var(--animation-duration-normal) ease;
+  text-decoration: none;
+  color: var(--card-foreground);
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--primary);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-3);
+}
+
+.iconWrapper {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-card-inner);
+  background-color: color-mix(in srgb, var(--primary) 12%, transparent);
+  color: var(--primary);
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.deleteButton {
+  opacity: 0;
+  transition: opacity var(--animation-duration-fast) ease;
+  color: var(--muted-foreground);
+}
+
+.card:hover .deleteButton {
+  opacity: 1;
+}
+
+.deleteButton:hover {
+  color: var(--error);
+  background-color: color-mix(in srgb, var(--error) 10%, transparent);
+}
+
+.description {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin: 0 0 var(--spacing-4) 0;
+  line-height: 1.5;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+.progressWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.progressText {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.progressText svg {
+  color: var(--secondary);
+}
+
+.syncIndicator {
+  color: var(--warning);
+  font-size: 0.75rem;
+  margin-left: var(--spacing-2);
+  animation: pulse 2s infinite;
+}
+
+.offlineIndicator {
+  font-size: 0.75rem;
+  margin-left: var(--spacing-2);
+  opacity: 0.7;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

@@ -1,0 +1,109 @@
+.dialogOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  background-color: color-mix(in srgb, var(--background), transparent 20%);
+  backdrop-filter: blur(4px);
+  animation: fadeIn var(--animation-duration-fast) var(--animation-ease-out);
+}
+
+.dialogContent {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: var(--z-overlay);
+  display: grid;
+  width: 100%;
+  max-width: 520px;
+  gap: var(--spacing-6);
+  background-color: var(--popup);
+  color: var(--popup-foreground);
+  padding: var(--card-padding);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-2xl);
+  animation: contentShow var(--animation-duration-normal) var(--animation-ease-out);
+}
+
+.dialogClose {
+  position: absolute;
+  top: var(--spacing-4);
+  right: var(--spacing-4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-full);
+  color: var(--muted-foreground);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--animation-duration-fast) ease, color var(--animation-duration-fast) ease;
+}
+
+.dialogClose:hover {
+  background-color: var(--muted);
+  color: var(--foreground);
+}
+
+.dialogClose:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--primary);
+}
+
+.dialogHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.dialogFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-3);
+  margin-top: var(--spacing-2);
+}
+
+.dialogTitle {
+  font-family: var(--font-family-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--popup-foreground);
+}
+
+.dialogDescription {
+  font-size: 0.9375rem;
+  color: var(--muted-foreground);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

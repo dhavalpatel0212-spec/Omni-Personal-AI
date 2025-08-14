@@ -1,0 +1,28 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: var(--spacing-2);
+}
+
+.dateTimeRow {
+  display: flex;
+  gap: var(--spacing-4);
+}
+
+.dateTimeItem {
+  flex: 1;
+}
+
+.dateButton {
+  width: 100%;
+  justify-content: flex-start;
+  font-weight: 400;
+  color: var(--foreground);
+}
+
+.dateButton[data-placeholder] {
+  color: var(--muted-foreground);
+}

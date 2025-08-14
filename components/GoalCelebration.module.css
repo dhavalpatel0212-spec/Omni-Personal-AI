@@ -1,0 +1,213 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsla(220, 25%, 8%, 0.3);
+  backdrop-filter: blur(4px);
+  z-index: var(--z-spotlight);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--animation-duration-normal) var(--animation-ease);
+}
+
+.overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.content {
+  text-align: center;
+  color: var(--primary-foreground);
+  transform: scale(0.8);
+  opacity: 0;
+  animation: popIn var(--animation-duration-slow) var(--animation-ease-out) 0.2s forwards;
+  padding: var(--spacing-8);
+  max-width: 90%;
+}
+
+@keyframes popIn {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.iconWrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: var(--spacing-6);
+  animation: bounceIn 0.8s var(--animation-ease-out) forwards;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.mainIcon {
+  color: var(--accent);
+  filter: drop-shadow(0 4px 12px hsla(330, 85%, 62%, 0.4));
+}
+
+.sparkle,
+.star {
+  position: absolute;
+  color: var(--warning);
+  opacity: 0;
+  animation: sparkle-anim 1.5s var(--animation-ease-out) infinite;
+}
+
+.sparkle1 {
+  top: -10px;
+  right: -20px;
+  animation-delay: 0.3s;
+}
+
+.sparkle2 {
+  bottom: 0;
+  left: -25px;
+  animation-delay: 0.6s;
+}
+
+.star1 {
+  top: 50%;
+  left: -15px;
+  transform: translateY(-50%);
+  animation-delay: 0.9s;
+  color: var(--info);
+}
+
+.star2 {
+  top: -15px;
+  left: 0;
+  animation-delay: 1.2s;
+  color: var(--secondary);
+}
+
+@keyframes sparkle-anim {
+  0%, 100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 var(--spacing-2) 0;
+  background: linear-gradient(45deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  animation: fadeInText 1s ease 0.5s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInText {
+  to {
+    opacity: 1;
+  }
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: var(--muted-foreground);
+  margin: 0;
+  max-width: 450px;
+  line-height: 1.6;
+  animation: fadeInText 1s ease 0.8s forwards;
+  opacity: 0;
+}
+
+:global(.dark) .overlay {
+  background-color: hsla(220, 25%, 8%, 0.5);
+}
+
+:global(.dark) .subtitle {
+  color: var(--muted-foreground);
+}
+
+/* Confetti */
+.confettiContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 20px;
+  background: var(--primary);
+  top: -50px;
+  opacity: 0;
+  animation: fall var(--animation-duration-slow) linear infinite;
+  animation-delay: calc(var(--d) * 1s);
+  left: calc(var(--i) * 100vw);
+  transform: rotate(calc(var(--r) * 1deg));
+}
+
+.confetti:nth-child(5n) { background: var(--secondary); }
+.confetti:nth-child(5n + 1) { background: var(--accent); }
+.confetti:nth-child(5n + 2) { background: var(--warning); }
+.confetti:nth-child(5n + 3) { background: var(--info); }
+.confetti:nth-child(5n + 4) { background: var(--success); }
+
+.confetti:nth-child(2n) { width: 6px; height: 12px; animation-duration: 2s; }
+.confetti:nth-child(3n) { width: 12px; height: 12px; border-radius: 50%; animation-duration: 3.5s; }
+
+@keyframes fall {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(calc(var(--r) * 1deg));
+  }
+  100% {
+    opacity: 0.5;
+    transform: translateY(100vh) rotate(calc(var(--r) * 1deg + 360deg));
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .iconWrapper {
+    margin-bottom: var(--spacing-4);
+  }
+  .mainIcon {
+    width: 40px;
+    height: 40px;
+  }
+}

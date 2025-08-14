@@ -1,0 +1,120 @@
+.eventList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.eventItem {
+  display: flex;
+  gap: var(--spacing-4);
+  padding: var(--spacing-4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background-color: var(--surface);
+  transition: background-color var(--animation-duration-fast) ease, box-shadow var(--animation-duration-fast) ease;
+  align-items: center;
+}
+
+.eventItem:not(.compact):hover {
+  background-color: var(--surface-elevated);
+  box-shadow: var(--shadow-sm);
+}
+
+.eventItem.compact {
+  padding: var(--spacing-3) var(--spacing-4);
+  border: none;
+  border-radius: var(--radius);
+  background-color: transparent;
+}
+
+.eventTime {
+  flex-shrink: 0;
+  width: 80px;
+  text-align: right;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.eventTime p {
+  margin: 0;
+}
+
+.eventTime .time {
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.eventTime .date {
+  font-size: 0.8rem;
+}
+
+.eventDetails {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.eventTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 var(--spacing-1) 0;
+  color: var(--foreground);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.eventMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin-top: var(--spacing-1);
+}
+
+.eventMeta svg {
+  flex-shrink: 0;
+}
+
+.eventMeta span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.eventActions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  margin-left: auto;
+}
+
+.noEvents {
+  text-align: center;
+  padding: var(--spacing-8);
+  color: var(--muted-foreground);
+  border: 2px dashed var(--border-subtle);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-3);
+}
+
+.noEventsCompact {
+  padding: var(--spacing-4);
+  border: none;
+  background-color: var(--surface);
+  border-radius: var(--radius-md);
+}
+
+.noEventsIcon {
+  color: var(--muted-foreground);
+  opacity: 0.7;
+}
+
+.noEvents p {
+  margin: 0;
+  font-size: 0.9rem;
+}

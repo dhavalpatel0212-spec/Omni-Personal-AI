@@ -1,0 +1,87 @@
+.card {
+  background-color: var(--card);
+  border-radius: var(--radius-card);
+  padding: var(--card-padding);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-card);
+  transition: all var(--animation-duration-normal) ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.initialState,
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-2);
+}
+
+.icon {
+  color: var(--primary);
+}
+
+.iconError {
+  color: var(--error);
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--card-foreground);
+  margin: var(--spacing-2) 0 0;
+}
+
+.description {
+  color: var(--muted-foreground);
+  max-width: 400px;
+  margin-bottom: var(--spacing-4);
+}
+
+.loadingState {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.insightsContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.analysisText {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--foreground);
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: var(--spacing-2);
+}
+
+.analysisText strong {
+  font-weight: 600;
+  color: var(--card-foreground);
+}
+
+.analysisText em {
+  font-style: italic;
+  color: var(--secondary);
+}
+
+.loader {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,50 @@
+.navContainer {
+  display: none; /* Hidden on mobile by default */
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color var(--animation-duration-fast) ease, background-color var(--animation-duration-fast) ease;
+}
+
+.navLink:hover {
+  color: var(--foreground);
+  background-color: var(--muted);
+}
+
+.navLink.active {
+  color: var(--primary);
+  background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+}
+
+.dark .navLink.active {
+    background-color: color-mix(in srgb, var(--primary) 20%, transparent);
+}
+
+.icon {
+  /* Icon size is slightly smaller than in the bottom nav for a more compact header */
+}
+
+/* Show on larger screens (e.g., tablets and desktops) */
+@media (min-width: 768px) {
+  .navContainer {
+    display: block;
+  }
+}
