@@ -1,0 +1,242 @@
+.container {
+  width: 100%;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-8);
+}
+
+.headerIcon {
+  color: var(--primary);
+}
+
+.pageHeader h1 {
+  font-family: var(--font-family-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.section {
+  margin-bottom: var(--spacing-12);
+}
+
+.sectionTitle {
+  font-family: var(--font-family-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0 0 var(--spacing-4) 0;
+}
+
+/* Current Plan Card */
+.currentPlanCard {
+  background-color: var(--surface-elevated);
+  border-radius: var(--radius-lg);
+  padding: var(--card-padding);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-subtle);
+}
+
+.unauthenticatedCard {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  color: var(--muted-foreground);
+}
+
+.unauthenticatedIcon {
+  color: var(--info);
+}
+
+.planHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+}
+
+.planInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.planLabel {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  font-weight: 500;
+}
+
+.planFeatures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-3) var(--spacing-6);
+  font-size: 0.9375rem;
+  color: var(--foreground);
+}
+
+.planFeatures strong {
+  font-weight: 600;
+}
+
+/* Billing Toggle */
+.billingToggleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-6);
+}
+
+.billingToggle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  background-color: var(--surface);
+  padding: var(--spacing-1);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+}
+
+.billingToggle label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--animation-duration-fast) ease;
+}
+
+.billingToggle .activeLabel {
+  color: var(--primary-foreground);
+  background-color: var(--primary);
+}
+
+.savingsBadge {
+  margin-left: var(--spacing-2);
+  background-color: color-mix(in srgb, var(--success) 15%, transparent);
+  color: var(--success);
+  border-color: transparent;
+}
+
+/* Pricing Grid */
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-6);
+}
+
+.pricingCard {
+  background-color: var(--card);
+  border-radius: var(--radius-lg);
+  padding: var(--card-padding);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform var(--animation-duration-normal) ease, box-shadow var(--animation-duration-normal) ease;
+}
+
+.pricingCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.popularCard {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+.tierBadge {
+  position: absolute;
+  top: var(--spacing-4);
+  right: var(--spacing-4);
+}
+
+.tierName {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 var(--spacing-2) 0;
+}
+
+.tierPrice {
+  margin: 0 0 var(--spacing-2) 0;
+  font-size: 1.125rem;
+  color: var(--muted-foreground);
+}
+
+.priceValue {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--foreground);
+  font-family: var(--font-family-heading);
+}
+
+.tierDescription {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin: 0 0 var(--spacing-6) 0;
+  min-height: 40px;
+}
+
+.tierButton {
+  width: 100%;
+  margin-bottom: var(--spacing-6);
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  font-size: 0.9375rem;
+}
+
+.featureList li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.featureIcon {
+  flex-shrink: 0;
+}
+
+.included {
+  color: var(--foreground);
+}
+
+.included .featureIcon {
+  color: var(--success);
+}
+
+.excluded {
+  color: var(--muted-foreground);
+  text-decoration: line-through;
+}
+
+.excluded .featureIcon {
+  color: var(--muted-foreground);
+}
+
+@media (max-width: 768px) {
+  .billingToggleContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

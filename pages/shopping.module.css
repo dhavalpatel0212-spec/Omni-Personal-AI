@@ -1,0 +1,520 @@
+.container {
+  font-family: var(--font-family-base);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--surface-padding);
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
+  position: relative;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: -50vh;
+  left: -50vw;
+  right: -50vw;
+  height: 100vh;
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--primary) 3%, transparent) 0%,
+    color-mix(in srgb, var(--secondary) 2%, transparent) 50%,
+    color-mix(in srgb, var(--accent) 1%, transparent) 100%);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.header {
+  background: linear-gradient(135deg, var(--card) 0%, color-mix(in srgb, var(--card) 95%, var(--primary) 5%) 100%);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  border: 1px solid color-mix(in srgb, var(--card-border) 80%, var(--primary) 20%);
+  padding: var(--card-padding-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--card-gap);
+  transition: all var(--animation-duration-normal) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--primary) 5%, transparent) 0%,
+    transparent 50%,
+    color-mix(in srgb, var(--secondary) 3%, transparent) 100%);
+  opacity: 0;
+  transition: opacity var(--animation-duration-normal) ease;
+  pointer-events: none;
+}
+
+.header:hover::before {
+  opacity: 1;
+}
+
+.header:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--primary) 40%, var(--card-border));
+}
+
+.headerContent {
+  z-index: 1;
+  position: relative;
+}
+
+.headerActions {
+  display: flex;
+  gap: var(--spacing-3);
+  align-items: center;
+  z-index: 1;
+  position: relative;
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: 2.25rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, 
+    var(--card-foreground) 0%,
+    color-mix(in srgb, var(--primary) 80%, var(--card-foreground) 20%) 50%,
+    color-mix(in srgb, var(--secondary) 60%, var(--card-foreground) 40%) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  text-shadow: 0 2px 4px color-mix(in srgb, var(--primary) 10%, transparent);
+  transition: all var(--animation-duration-normal) ease;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  font-weight: 500;
+  background: linear-gradient(135deg, 
+    var(--muted-foreground) 0%,
+    color-mix(in srgb, var(--primary) 40%, var(--muted-foreground) 60%) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: var(--spacing-2);
+  transition: all var(--animation-duration-normal) ease;
+}
+
+.controls {
+  background: linear-gradient(135deg, var(--card) 0%, color-mix(in srgb, var(--card) 97%, var(--secondary) 3%) 100%);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--card-border);
+  padding: var(--card-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--card-gap);
+  transition: all var(--animation-duration-normal) ease;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.controls::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--secondary) 3%, transparent) 0%,
+    transparent 50%,
+    color-mix(in srgb, var(--primary) 2%, transparent) 100%);
+  opacity: 0;
+  transition: opacity var(--animation-duration-normal) ease;
+  pointer-events: none;
+  border-radius: var(--radius-card);
+}
+
+.controls:hover::before {
+  opacity: 1;
+}
+
+.controls:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--secondary) 30%, var(--card-border));
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  min-width: 280px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: var(--spacing-4);
+  color: color-mix(in srgb, var(--primary) 60%, var(--muted-foreground) 40%);
+  pointer-events: none;
+  z-index: 2;
+  transition: all var(--animation-duration-normal) ease;
+}
+
+.searchInput {
+  padding-left: calc(var(--spacing-4) * 2 + 20px);
+  width: 100%;
+  background: linear-gradient(135deg, var(--card) 0%, color-mix(in srgb, var(--card) 98%, var(--primary) 2%) 100%);
+  border: 1px solid color-mix(in srgb, var(--border) 80%, var(--primary) 20%);
+  border-radius: var(--radius-md);
+  height: 2.75rem;
+  font-size: 1rem;
+  transition: all var(--animation-duration-normal) ease;
+  box-shadow: inset 0 1px 3px color-mix(in srgb, var(--primary) 5%, transparent);
+}
+
+.searchInput:hover {
+  border-color: color-mix(in srgb, var(--primary) 50%, var(--border));
+  box-shadow: 
+    inset 0 1px 3px color-mix(in srgb, var(--primary) 5%, transparent),
+    0 0 0 3px color-mix(in srgb, var(--primary) 8%, transparent);
+}
+
+.searchInput:focus {
+  border-color: var(--primary);
+  box-shadow: 
+    inset 0 1px 3px color-mix(in srgb, var(--primary) 5%, transparent),
+    0 0 0 3px color-mix(in srgb, var(--primary) 15%, transparent);
+}
+
+.searchInput:focus + .searchIcon,
+.searchWrapper:hover .searchIcon {
+  color: var(--primary);
+  transform: scale(1.1);
+}
+
+.toggleGroup {
+  display: flex;
+  gap: var(--spacing-1);
+  background: color-mix(in srgb, var(--muted) 50%, transparent);
+  padding: var(--spacing-1);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(10px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--card-gap-lg);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.emptyState,
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-20) var(--card-padding);
+  background: linear-gradient(135deg, 
+    var(--card) 0%,
+    color-mix(in srgb, var(--card) 95%, var(--primary) 5%) 100%);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  border: 1px dashed color-mix(in srgb, var(--card-border) 70%, var(--primary) 30%);
+  min-height: 400px;
+  transition: all var(--animation-duration-normal) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.emptyState::before,
+.errorState::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, 
+    color-mix(in srgb, var(--primary) 5%, transparent) 0%,
+    transparent 70%);
+  opacity: 0;
+  transition: opacity var(--animation-duration-normal) ease;
+  pointer-events: none;
+}
+
+.emptyState:hover::before,
+.errorState:hover::before {
+  opacity: 1;
+}
+
+.emptyState:hover,
+.errorState:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--primary) 50%, var(--card-border));
+}
+
+.errorState {
+  background: linear-gradient(135deg, 
+    var(--card) 0%,
+    color-mix(in srgb, var(--card) 95%, var(--error) 5%) 100%);
+  border-color: color-mix(in srgb, var(--error) 30%, var(--card-border));
+}
+
+.errorState::before {
+  background: radial-gradient(circle at center, 
+    color-mix(in srgb, var(--error) 5%, transparent) 0%,
+    transparent 70%);
+}
+
+.emptyState h3,
+.errorState h2 {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: var(--spacing-4) 0;
+  background: linear-gradient(135deg, 
+    var(--card-foreground) 0%,
+    color-mix(in srgb, var(--primary) 70%, var(--card-foreground) 30%) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  z-index: 1;
+  position: relative;
+}
+
+.errorState h2 {
+  background: linear-gradient(135deg, 
+    var(--error) 0%,
+    color-mix(in srgb, var(--error) 80%, var(--card-foreground) 20%) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.emptyState p,
+.errorState p {
+  margin-bottom: var(--spacing-6);
+  color: var(--muted-foreground);
+  font-size: 1.125rem;
+  z-index: 1;
+  position: relative;
+}
+
+/* Enhanced Skeleton Loading Styles */
+.skeletonCard {
+  background: linear-gradient(135deg, var(--card) 0%, color-mix(in srgb, var(--card) 98%, var(--primary) 2%) 100%);
+  border-radius: var(--radius-card);
+  padding: var(--card-padding-sm);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--card-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-gap-sm);
+  position: relative;
+  overflow: hidden;
+  animation: shimmerCard 2s ease-in-out infinite;
+}
+
+@keyframes shimmerCard {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+}
+
+.skeletonCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    color-mix(in srgb, var(--primary) 8%, transparent) 50%,
+    transparent 100%);
+  animation: skeletonShimmer 2s infinite;
+}
+
+@keyframes skeletonShimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.skeletonHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-3);
+  z-index: 1;
+  position: relative;
+}
+
+.skeletonFooter {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  z-index: 1;
+  position: relative;
+}
+
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-4);
+    gap: var(--spacing-8);
+  }
+
+  .container::before {
+    top: -20vh;
+    height: 60vh;
+  }
+
+  .header, .controls {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--card-padding);
+    gap: var(--spacing-4);
+  }
+
+  .headerActions {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--spacing-2);
+  }
+
+  .headerActions > button {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .title {
+    font-size: 1.875rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .subtitle {
+    text-align: center;
+    width: 100%;
+  }
+
+  .controls {
+    width: 100%;
+    gap: var(--spacing-4);
+  }
+
+  .searchWrapper {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .toggleGroup {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .toggleGroup > button {
+    flex: 1;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-4);
+  }
+
+  .emptyState,
+  .errorState {
+    padding: var(--spacing-12) var(--spacing-4);
+    min-height: 300px;
+  }
+
+  .emptyState h3,
+  .errorState h2 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: var(--card-padding-sm);
+  }
+
+  .headerActions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .headerActions > button {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 1.625rem;
+  }
+
+  .searchInput {
+    height: 2.5rem;
+    font-size: 0.9375rem;
+  }
+
+  .toggleGroup {
+    gap: 0;
+    padding: 2px;
+  }
+}
+
+/* Enhanced dark mode support */
+:global(.dark) .container::before {
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--primary) 2%, transparent) 0%,
+    color-mix(in srgb, var(--secondary) 1%, transparent) 50%,
+    color-mix(in srgb, var(--accent) 0.5%, transparent) 100%);
+  opacity: 0.2;
+}
+
+:global(.dark) .header {
+  background: linear-gradient(135deg, var(--card) 0%, color-mix(in srgb, var(--card) 97%, var(--primary) 3%) 100%);
+}
+
+:global(.dark) .controls {
+  background: linear-gradient(135deg, var(--card) 0%, color-mix(in srgb, var(--card) 98%, var(--secondary) 2%) 100%);
+}
+
+:global(.dark) .searchInput {
+  background: linear-gradient(135deg, var(--card) 0%, color-mix(in srgb, var(--card) 99%, var(--primary) 1%) 100%);
+  box-shadow: inset 0 1px 3px color-mix(in srgb, var(--primary) 3%, transparent);
+}

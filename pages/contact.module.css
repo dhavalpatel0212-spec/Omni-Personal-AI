@@ -1,0 +1,60 @@
+.pageWrapper {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-family-base);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.mainContent {
+  flex-grow: 1;
+  padding: var(--spacing-12) var(--spacing-4);
+}
+
+.contentContainer {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.comingSoon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 400px;
+  gap: var(--spacing-4);
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.comingSoonMessage {
+  font-size: 1.25rem;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    padding: var(--spacing-8) var(--spacing-4);
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .contactGrid {
+    gap: var(--card-gap);
+  }
+}

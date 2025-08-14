@@ -1,0 +1,454 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--background) 0%, color-mix(in srgb, var(--background) 95%, var(--primary) 5%) 100%);
+  padding: var(--spacing-4);
+  font-family: var(--font-family-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.backgroundPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, color-mix(in srgb, var(--primary) 8%, transparent) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--secondary) 6%, transparent) 0%, transparent 50%),
+              radial-gradient(circle at 40% 40%, color-mix(in srgb, var(--accent) 4%, transparent) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.registerCard {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 28rem;
+  perspective: 1000px;
+  animation: cardEntrance 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.cardGlow {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--primary) 20%, transparent) 0%,
+    color-mix(in srgb, var(--secondary) 15%, transparent) 50%,
+    color-mix(in srgb, var(--accent) 10%, transparent) 100%);
+  border-radius: calc(var(--radius-xl) + 2px);
+  opacity: 0.7;
+  blur: 20px;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+.cardContent {
+  position: relative;
+  background: var(--card);
+  backdrop-filter: blur(20px);
+  border: 1px solid color-mix(in srgb, var(--border) 80%, var(--primary) 20%);
+  border-radius: var(--radius-xl);
+  box-shadow: 
+    var(--shadow-2xl),
+    inset 0 1px 0 color-mix(in srgb, white 10%, transparent);
+  padding: var(--spacing-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  transition: transform var(--animation-duration-normal) ease;
+}
+
+.authenticatedBanner {
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--primary) 8%, var(--card)) 0%,
+    color-mix(in srgb, var(--primary) 4%, var(--card)) 100%);
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, var(--border));
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-4);
+  margin-bottom: var(--spacing-2);
+}
+
+.bannerContent {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-3);
+}
+
+.bannerIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--primary);
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
+.bannerText {
+  flex: 1;
+}
+
+.bannerTitle {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--card-foreground);
+  margin: 0 0 var(--spacing-1);
+  line-height: 1.4;
+}
+
+.bannerSubtitle {
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.bannerActions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  justify-content: flex-end;
+}
+
+.bannerLink {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--animation-duration-fast) ease;
+}
+
+.bannerLink:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+.logoutButton {
+  font-size: 0.8125rem;
+}
+
+.cardContent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    color-mix(in srgb, var(--primary) 30%, transparent) 50%,
+    transparent 100%);
+}
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-2);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  border-radius: var(--radius-full);
+  box-shadow: 
+    var(--shadow-md),
+    inset 0 1px 0 color-mix(in srgb, white 20%, transparent);
+  position: relative;
+  overflow: hidden;
+}
+
+.logo::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 30%, color-mix(in srgb, white 15%, transparent) 50%, transparent 70%);
+  animation: logoShine 3s linear infinite;
+}
+
+.logoText {
+  font-family: var(--font-family-heading);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: white;
+  z-index: 1;
+  position: relative;
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--card-foreground) 0%, color-mix(in srgb, var(--primary) 80%, var(--card-foreground) 20%) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--card-foreground);
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+  margin: 0;
+  max-width: 40ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 400;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  margin: var(--spacing-2) 0;
+}
+
+.separatorLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    var(--border) 20%,
+    var(--border) 80%,
+    transparent 100%);
+}
+
+.separatorText {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0 var(--spacing-2);
+  background: var(--card);
+  position: relative;
+}
+
+.footer {
+  padding-top: var(--spacing-4);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.footerText {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.link {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--animation-duration-fast) ease;
+  position: relative;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+  transform: scaleX(0);
+  transition: transform var(--animation-duration-normal) ease;
+}
+
+.link:hover {
+  color: color-mix(in srgb, var(--primary) 90%, var(--card-foreground) 10%);
+  transform: translateY(-1px);
+}
+
+.link:hover::after {
+  transform: scaleX(1);
+}
+
+.link:active {
+  transform: translateY(0);
+}
+
+/* Animations */
+@keyframes cardEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) rotateX(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.01);
+  }
+}
+
+@keyframes logoShine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .container {
+    padding: var(--spacing-3);
+    min-height: 100vh;
+    align-items: flex-start;
+    padding-top: var(--spacing-8);
+  }
+
+  .registerCard {
+    max-width: 100%;
+  }
+
+  .cardContent {
+    padding: var(--spacing-6);
+    gap: var(--spacing-6);
+    border-radius: var(--radius-lg);
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.9375rem;
+  }
+
+  .logo {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .logoText {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: var(--spacing-2);
+    padding-top: var(--spacing-6);
+  }
+
+  .cardContent {
+    padding: var(--spacing-5);
+    gap: var(--spacing-5);
+  }
+
+  .title {
+    font-size: 1.375rem;
+  }
+
+  .formSection {
+    gap: var(--spacing-5);
+  }
+}
+
+/* Dark mode enhancements */
+:global(.dark) .cardGlow {
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--primary) 30%, transparent) 0%,
+    color-mix(in srgb, var(--secondary) 25%, transparent) 50%,
+    color-mix(in srgb, var(--accent) 20%, transparent) 100%);
+}
+
+:global(.dark) .cardContent {
+  background: color-mix(in srgb, var(--card) 95%, var(--primary) 5%);
+  border-color: color-mix(in srgb, var(--border) 70%, var(--primary) 30%);
+  box-shadow: 
+    var(--shadow-2xl),
+    inset 0 1px 0 color-mix(in srgb, white 5%, transparent);
+}
+
+:global(.dark) .title {
+  background: linear-gradient(135deg, var(--card-foreground) 0%, color-mix(in srgb, var(--primary) 90%, var(--card-foreground) 10%) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Focus and interaction states */
+.registerCard:hover .cardContent {
+  transform: translateY(-2px);
+}
+
+.registerCard:hover .cardGlow {
+  opacity: 1;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .cardEntrance,
+  .glowPulse,
+  .logoShine {
+    animation: none;
+  }
+  
+  .registerCard:hover .cardContent {
+    transform: none;
+  }
+  
+  .link:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .cardContent {
+    border-width: 2px;
+    border-color: var(--primary);
+  }
+  
+  .title {
+    background: none;
+    color: var(--card-foreground);
+    -webkit-text-fill-color: unset;
+  }
+  
+  .link {
+    text-decoration: underline;
+  }
+}

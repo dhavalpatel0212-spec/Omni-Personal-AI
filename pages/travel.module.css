@@ -1,0 +1,263 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--surface-padding);
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
+}
+
+.header {
+  background-color: var(--card);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--card-border);
+  padding: var(--card-padding);
+  transition: box-shadow var(--animation-duration-normal) ease;
+}
+
+.header:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--card-gap);
+  flex-wrap: wrap;
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--card-foreground);
+  margin: 0 0 var(--spacing-2) 0;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: var(--muted-foreground);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.headerActions {
+  display: flex;
+  gap: var(--spacing-3);
+  align-items: center;
+}
+
+.section {
+  background-color: var(--card);
+  border-radius: var(--radius-card);
+  padding: var(--card-padding);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--animation-duration-normal) ease;
+}
+
+.section:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--card-gap-lg);
+  flex-wrap: wrap;
+  gap: var(--card-gap-sm);
+}
+
+.sectionTitle {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--card-foreground);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.sectionTitle svg {
+  color: var(--primary);
+}
+
+.goalsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--card-gap-lg);
+}
+
+.skeletonCard {
+  min-height: 200px;
+}
+
+.emptyState {
+  background-color: var(--surface-elevated);
+  border-radius: var(--radius-card-inner);
+  box-shadow: var(--shadow-xs);
+  border: 1px solid var(--card-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-12) var(--card-padding);
+  min-height: 300px;
+}
+
+.emptyIcon {
+  color: var(--muted-foreground);
+  margin-bottom: var(--spacing-4);
+}
+
+.emptyState h3 {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--surface-elevated-foreground);
+  margin: 0 0 var(--spacing-2) 0;
+}
+
+.emptyState p {
+  color: var(--muted-foreground);
+  margin: 0 0 var(--spacing-6) 0;
+  max-width: 400px;
+  line-height: 1.5;
+}
+
+.errorState {
+  padding: var(--card-padding);
+  text-align: center;
+  color: var(--error);
+  background-color: color-mix(in srgb, var(--error) 5%, var(--card));
+  border-radius: var(--radius-card-inner);
+  box-shadow: var(--shadow-xs);
+  border: 1px solid color-mix(in srgb, var(--error) 20%, var(--card-border));
+}
+
+.aiSection {
+  margin-top: var(--spacing-4);
+}
+
+.aiCard {
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, var(--primary) 10%, var(--card)), 
+    color-mix(in srgb, var(--secondary) 10%, var(--card))
+  );
+  border-radius: var(--radius-card);
+  padding: var(--card-padding);
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, var(--card-border));
+  box-shadow: var(--shadow-card);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--card-gap);
+  flex-wrap: wrap;
+  transition: box-shadow var(--animation-duration-normal) ease;
+}
+
+.aiCard:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.aiContent {
+  display: flex;
+  align-items: center;
+  gap: var(--card-gap);
+  flex: 1;
+  min-width: 0;
+}
+
+.aiIcon {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.aiTitle {
+  font-family: var(--font-family-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--card-foreground);
+  margin: 0 0 var(--spacing-1) 0;
+}
+
+.aiDescription {
+  color: var(--muted-foreground);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-4);
+    gap: var(--spacing-8);
+  }
+
+  .header {
+    padding: var(--card-padding-sm);
+  }
+
+  .headerContent {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .headerActions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .headerActions button {
+    flex: 1;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .section {
+    padding: var(--card-padding-sm);
+  }
+
+  .sectionHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .goalsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--card-gap);
+  }
+
+  .aiCard {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--card-padding-sm);
+  }
+
+  .aiContent {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .headerActions {
+    flex-direction: column;
+    gap: var(--spacing-2);
+  }
+}

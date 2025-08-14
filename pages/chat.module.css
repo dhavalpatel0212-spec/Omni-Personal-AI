@@ -1,0 +1,31 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  /* The main content area has padding, we want to use the full space */
+  margin: calc(-1 * var(--spacing-4));
+}
+
+.chatWidget {
+  flex-grow: 1;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  max-height: none; /* Override max-height from the component */
+  height: 100%;
+}
+
+/* On larger screens, restore some padding and styling */
+@media (min-width: 768px) {
+  .pageContainer {
+    margin: 0;
+    height: calc(100vh - 60px - (2 * var(--spacing-8))); /* Full viewport height minus header and padding */
+  }
+
+  .chatWidget {
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+  }
+}

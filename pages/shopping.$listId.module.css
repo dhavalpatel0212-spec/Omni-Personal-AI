@@ -1,0 +1,205 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: var(--font-family-base);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-6);
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+}
+
+.headerInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  flex: 1;
+  min-width: 200px;
+}
+
+.backButton {
+  color: var(--muted-foreground);
+}
+
+.backButton:hover {
+  color: var(--foreground);
+  background-color: var(--muted);
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.description {
+  font-size: 0.9375rem;
+  color: var(--muted-foreground);
+  margin-top: var(--spacing-1);
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.progressContainer {
+  margin-bottom: var(--spacing-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.progressLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.progressLabel svg {
+  color: var(--secondary);
+}
+
+.progressPercentage {
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.suggestionsSection {
+  margin-bottom: var(--spacing-6);
+}
+
+.suggestionsTrigger {
+  width: 100%;
+  padding: var(--spacing-4);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--animation-duration-fast) var(--animation-ease);
+}
+
+.suggestionsTrigger:hover {
+  background-color: var(--surface-elevated);
+  box-shadow: var(--shadow-md);
+}
+
+.suggestionsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.suggestionsTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  font-family: var(--font-family-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.suggestionsTitle svg {
+  color: var(--secondary);
+}
+
+.chevronIcon {
+  color: var(--muted-foreground);
+  transition: transform var(--animation-duration-fast) var(--animation-ease);
+}
+
+.suggestionsTrigger[data-state="open"] .chevronIcon {
+  transform: rotate(180deg);
+}
+
+.suggestionsContent {
+  margin-top: var(--spacing-4);
+}
+
+.suggestions {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.itemsContainer {
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  box-shadow: var(--shadow);
+}
+
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-16) var(--spacing-8);
+  color: var(--error);
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--error);
+  min-height: 300px;
+}
+
+.errorState h2 {
+  font-family: var(--font-family-heading);
+  font-size: 1.25rem;
+  margin: var(--spacing-4) 0;
+  color: var(--foreground);
+}
+
+.errorState p {
+  margin-bottom: var(--spacing-6);
+  color: var(--muted-foreground);
+}
+
+.visionDialog {
+  max-width: 600px;
+  width: 90vw;
+}
+
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .actions {
+    width: 100%;
+    justify-content: flex-start;
+    gap: var(--spacing-2);
+  }
+  .actions > button {
+    flex: 1;
+    min-width: 0;
+  }
+  .itemsContainer {
+    padding: var(--spacing-4);
+  }
+  .visionDialog {
+    width: 95vw;
+    max-height: 90vh;
+  }
+  .suggestionsTrigger {
+    padding: var(--spacing-3);
+  }
+  .suggestionsTitle {
+    font-size: 1rem;
+  }
+}
